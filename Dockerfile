@@ -2,7 +2,7 @@ FROM ubuntu:20.04
 
 MAINTAINER Takeru Tsuchiya (takeru.tsuchiya@intel.com)
 
-ENV  JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/jre/
+ENV  JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/jre
 ENV  PATH $PATH:$JAVA_HOME/bin
 ENV  HADOOP_HOME /usr/local/hadoop
 ENV  PATH $PATH:$HADOOP_HOME/bin:$JAVA_HOME/bin
@@ -28,5 +28,6 @@ RUN  mv /tmp/core-site.xml /usr/local/hadoop/etc/hadoop/core-site.xml
 RUN  mv /tmp/mapred-site.xml /usr/local/hadoop/etc/hadoop/mapred-site.xml
 RUN  mv /tmp/hdfs-site.xml /usr/local/hadoop/etc/hadoop/hdfs-site.xml
 RUN  mv /tmp/masters /usr/local/hadoop/etc/hadoop/masters
+RUN  echo "export JAVA_HOME=$JAVA_HOME" >> $HADOOP_HOME/etc/hadoop/hadoop-env.sh
 
 CMD [ "sh", "-c", "service ssh start; bash"]

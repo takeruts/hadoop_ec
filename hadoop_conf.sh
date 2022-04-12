@@ -9,6 +9,7 @@ docker cp conf/workers $NAMENODE:/usr/local/hadoop/etc/hadoop/
 docker cp namenode_script $NAMENODE:/
 
 docker exec -ti $NAMENODE bash -c "cp /tmp/libisal.so.2.0.30 /lib/ && ln -s /lib/libisal.so.2.0.30 /lib/libisal.so.2"
+JAVA_HOME='/usr/lib/jvm/java-8-openjdk-amd64/jre'
 
 docker exec -ti $NAMENODE bash -c "hadoop namenode -format"
 docker exec -ti $NAMENODE bash -c "/usr/local/hadoop/sbin/start-dfs.sh"

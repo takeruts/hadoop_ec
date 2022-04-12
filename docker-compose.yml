@@ -3,7 +3,6 @@ services:
         master:
                 container_name: master
                 build: .
-                env_file: env_file.env
                 ports:
                         - 50070:50070
                         - 8088:8088
@@ -13,7 +12,6 @@ services:
 
         datanode:
                 build: .
-                env_file: env_file.env
                 tty: true
                 deploy:
                         replicas: 9
