@@ -5,15 +5,13 @@ MAINTAINER Takeru Tsuchiya (takeru.tsuchiya@intel.com)
 ENV  JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/jre/
 ENV  PATH $PATH:$JAVA_HOME/bin
 ENV  HADOOP_HOME /usr/local/hadoop
-ENV  PATH $PATH:$HADOOP_HOME/bin
+ENV  PATH $PATH:$HADOOP_HOME/bin:$JAVA_HOME/bin
 ENV  HADOOP_CONF_DIR /usr/local/hadoop/etc/hadoop
 ENV  HDFS_NAMENODE_USER root
 ENV  HDFS_DATANODE_USER root
 ENV  HDFS_SECONDARYNAMENODE_USER root
 ENV  YARN_NODEMANAGER_USER root
 ENV  YARN_RESOURCEMANAGER_USER root
-ENV  http_proxy=http://proxy-chain.intel.com:911
-ENV  https_proxy=http://proxy-chain.intel.com:912
 
 RUN  apt-get update
 RUN  apt-get install -y openjdk-8-jdk wget openssh-server vim iproute2 iputils-ping
