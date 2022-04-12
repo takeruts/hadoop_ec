@@ -10,7 +10,7 @@ $ docker-compose up -d
 $ ./hadoop_conf.sh
 ```
 
-## Shtu Down all Nodes
+## Shut Down all Nodes
 
 ```sh
 $ docker-compose down
