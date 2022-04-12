@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+        master:
+                container_name: master
+                build: .
+                ports:
+                        - 50070:50070
+                        - 8088:8088
+                tty: true
+                networks:
+                        - docker-hadoop
+
+        datanode:
+                build: .
+                tty: true
+                deploy:
+                        replicas: 9
+                networks:
+                        - docker-hadoop
+
+networks:
+        docker-hadoop:
